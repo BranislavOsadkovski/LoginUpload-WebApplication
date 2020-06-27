@@ -18,8 +18,8 @@ public class LogFilter implements Filter{
 	@Override
 	public void init(FilterConfig filterConfig) {
 		filterConfig.getServletContext().log("LogFilter initialized");
-		//Getting initial parameter from web.xml file
 		
+		//Getting initial parameter from web.xml file
 		String testParam = filterConfig.getInitParameter("test-param");
 		System.out.println("test param : " + testParam);
 		

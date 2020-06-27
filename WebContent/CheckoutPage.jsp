@@ -8,10 +8,13 @@
 </head>
 <body>
 	<%
+	
 	boolean isFileUploaded=false;
+	//check if the file has been uploaded already
 	if(request.getSession().getAttribute("isFileUploaded")!=null){
 	isFileUploaded= (boolean)request.getSession().getAttribute("isFileUploaded");
 	}
+	
 	String username = null;
 	String sessionID = null;
 	Cookie[] cookies = request.getCookies();
