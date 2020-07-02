@@ -30,7 +30,7 @@
 	<br>
 	
 	<form action="FileUploadServlet" method="POST" enctype="multipart/form-data">
-		<%if(!isFileUploaded){ %><input type="file" name="file" value="Load file"/> 
+		<%if(!isFileUploaded){ %><input type="file" name="file"/> 
 		<br>
 		<input type="submit" value="Upload"/>
 		<%}else{ %>
@@ -41,6 +41,7 @@
 	<form action="LogoutServlet" method="POST">
 		<input type="submit" value="Logout" />
 	</form>
-
+	<p></p>
+<a href="LoginSuccess.jsp">Back</a>
 </body>
 </html>
