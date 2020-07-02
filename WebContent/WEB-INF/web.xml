@@ -11,6 +11,10 @@
 	</welcome-file-list>
 	<!-- Set context initial parameters -->
 	<context-param>
+		<param-name>UPLOAD_DIR</param-name>
+		<param-value>uploads</param-value>
+	</context-param>
+	<context-param>
 		<param-name>DBUSER</param-name>
 		<param-value>Branislav</param-value>
 	</context-param>

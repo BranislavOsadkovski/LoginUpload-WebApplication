@@ -27,7 +27,7 @@ public class AppContextListener implements ServletContextListener{
 	@Override
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
-		//Fetching DbConnection Attribute from ServletContext
+		//Getting DbConnection Object from ServletContext Attribute 
 		DbConnection dbConn = (DbConnection) servletContext.getAttribute("DbConnection");
 		dbConn.closeConnection(); 	 	
 	}

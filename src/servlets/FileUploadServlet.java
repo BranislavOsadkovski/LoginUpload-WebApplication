@@ -30,8 +30,8 @@ public class FileUploadServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final String UPLOAD_DIR = "uploads";
-
+	private static String UPLOAD_DIR = null;
+	private String username = null;
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -56,11 +56,17 @@ public class FileUploadServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// get absolute path of the web application
-		boolean FileUploaded=false;
-		if(request.getSession().getAttribute("isFileUploaded")!=null) {
-		FileUploaded = (boolean) request.getSession().getAttribute("isFileUploaded");
+		UPLOAD_DIR = request.getServletContext().getInitParameter("UPLOAD_DIR");
+		
+		if(request.getSession().getAttribute("user")!=null) {
+			this.username=(String)request.getSession().getAttribute("user");
 		}
-		if (!FileUploaded) {
+		
+		isFileUploaded=false;
+		if(request.getSession().getAttribute("isFileUploaded")!=null) {
+			isFileUploaded = (boolean) request.getSession().getAttribute("isFileUploaded");
+		}
+		if (!isFileUploaded) {
 			String webApplicationPath = request.getServletContext().getRealPath("");
 			String uploadFilePath = webApplicationPath + File.separator + UPLOAD_DIR;
 
@@ -68,7 +74,7 @@ public class FileUploadServlet extends HttpServlet {
 			File fileSaveDir = new File(uploadFilePath);
 			if (!fileSaveDir.exists()) {
 				fileSaveDir.mkdir(); 
-				/**		I am using Tomcat through eclipse so the path is different if you were to use Tomcat from cmd
+				/**		I am using TOMCAT through eclipse so the path is different if you were to use TOMCAT from CMD
 				 * set your file path as shown in the example, there is also another way that
 				 * you can set your directory in web.xml and access it as ServletContext Initial Parameters the same way   
 				 * shown in WebListener -> AppContextListener 
@@ -81,21 +87,27 @@ public class FileUploadServlet extends HttpServlet {
 				 *  	</param-value> 
 				 *</context-param>
 				 */
-				System.out.println("Upload file directory PATH: " + fileSaveDir.getAbsolutePath());
 			}
+			System.out.println("Upload file directory PATH: " + fileSaveDir.getAbsolutePath()+ "\\");
 			String fileName = null;
 
 			// Get all the parts from request and write it to the server
 			/**
 			 * go through all the parts of this request. The method getParts() returns a
-			 * Collection<part>
+			 * Collection<part> 
 			 **/
+			
 			for (Part part : request.getParts()) {
 				fileName = getFileName(part);
-				part.write(uploadFilePath + File.pathSeparator + fileName);
-
+				if(fileName.equals("") || fileName==null) {
+					break;
+				}
+				if(fileName!="" || fileName!=null ) {
+				part.write(fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
+				isFileUploaded = true;
+				}
 			}
-			isFileUploaded = true;
+			
 			
 			request.getSession().setAttribute("isFileUploaded", isFileUploaded);
 			response.sendRedirect("CheckoutPage.jsp");

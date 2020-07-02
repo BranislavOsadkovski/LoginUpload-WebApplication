@@ -20,8 +20,7 @@ public class RequestLogingFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig fConfig) {
-		// Filter will be initialized with initial method when the filter gets called the
-		// first time
+		// Filter will be initialized with initial method when the filter gets called the first time
 		this.context = fConfig.getServletContext();
 		this.context.log("RequestLogingFilter initialized");
 
@@ -50,9 +49,9 @@ public class RequestLogingFilter implements Filter {
 		chain.doFilter(request, response);
 
 	}
-	/* Called before the Filter instance is removed from service by the web container*/
+	/* Method is called before the Filter instance is removed from service by the web container*/
 	@Override
 	public void destroy() {
-		// Here is where we can close our resources
+		// Here can close our resources
 	}
 }
