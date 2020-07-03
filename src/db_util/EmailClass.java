@@ -41,6 +41,7 @@ public class EmailClass {
 			}
 
 		};
+		//We create the java.mail.Session by calling Session.getInstance method 
 		Session mailSession = Session.getInstance(properties, authenticator);
 
 		try {
