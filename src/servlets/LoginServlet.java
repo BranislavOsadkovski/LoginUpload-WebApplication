@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class LoginServlet
+ * SERVLET implementation class LoginServlet
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private final String userID = "tomcat";
+	
 	private final String basePassword = "tomcat";
 
 	/**
@@ -51,7 +51,6 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		//Also check username in the database matching the password
-		// username.equals(userID) && 
 		if (password.equals(basePassword)) {
 				response.getWriter().write(username + password);
 				//Getting session object created

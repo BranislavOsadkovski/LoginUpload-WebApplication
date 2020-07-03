@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,15 +12,15 @@ import javax.servlet.http.Part;
 
 /**
  * SERVLET implementation class FileUploadServlet
- */
-@WebServlet("/FileUploadServlet")    					/** specify different size parameters for upload file **/
+ */ 				
+/** specify different size parameters for upload file **/
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, 	// 10 MB
 		maxFileSize = 1024 * 1024 * 50,					// 50 MB
 		maxRequestSize = 1024 * 1024 * 100)				// 100 MB
 public class FileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private boolean isFileUploaded = false;
-
+	private String fileExists = null;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -57,6 +56,7 @@ public class FileUploadServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// get absolute path of the web application
 		UPLOAD_DIR = request.getServletContext().getInitParameter("UPLOAD_DIR");
+		request.setAttribute("fileExists",fileExists);
 		
 		if(request.getSession().getAttribute("user")!=null) {
 			this.username=(String)request.getSession().getAttribute("user");
@@ -103,8 +103,16 @@ public class FileUploadServlet extends HttpServlet {
 					break;
 				}
 				if(fileName!="" || fileName!=null ) {
-				part.write(fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
-				isFileUploaded = true;
+					
+						File file = new File(fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
+						if(file.exists()) {
+							fileExists="File with this name already exists on server";
+							request.getSession().setAttribute("fileExists", fileExists);
+						}else {
+							part.write(fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
+							isFileUploaded = true;
+						}
+				
 				}
 			}
 			

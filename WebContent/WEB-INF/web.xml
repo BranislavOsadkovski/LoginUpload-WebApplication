@@ -4,7 +4,25 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>Servlet_Study_test_1</display-name>
-
+	
+	<servlet>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<servlet-class>servlets.FileUploadServlet</servlet-class>	
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<url-pattern>/FileUploadServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EmailServlet</servlet-name>
+		<servlet-class>servlets.EmailServlet</servlet-class>	
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmailServlet</servlet-name>
+		<url-pattern>/EmailServlet</url-pattern>
+	</servlet-mapping>
+		
+	
 	<!-- Set the Welcome Page of your application -->
 	<welcome-file-list>
 		<welcome-file>login.html</welcome-file>

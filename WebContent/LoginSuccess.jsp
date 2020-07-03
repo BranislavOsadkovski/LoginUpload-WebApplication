@@ -32,14 +32,13 @@
 		Hi
 		<font color=red> <%=username_cookie%> </font>, Login succesfull. Your session ID =
 		<%=session_cookie%></h3><br> 
-		<%=date %><br> 
-		
+		<h3 style="color:blue;"><%=date %></h3> 		
 		<%/**For auto refresh and to update data or time in this case 
 		we can use the method response.setIntHeader */ 
 		response.setIntHeader("Refresh", 1); %>
 	User =	<%=user%>
-	<br>
-	<a href="CheckoutPage.jsp">Checkout Page</a>
+	<p></p>
+	<a style="color:green;" href="CheckoutPage.jsp">Go to Checkout Page</a>
 	<p></p><br>
 	<form action="LogoutServlet" method="post"> 
 		<input type="submit" value="Logout">
