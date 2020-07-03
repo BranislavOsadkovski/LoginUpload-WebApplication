@@ -57,10 +57,6 @@ public class EmailClass {
 			message.setSentDate(new Date());
 
 			Transport.send(message);
-
-			String t = "Send Email ";
-			String r = "Sent message successfully....";
-			System.out.println(t+r);
 			
 			String title = "Send Email";
 			String res = "Sent message successfully....";
