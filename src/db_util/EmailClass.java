@@ -15,12 +15,18 @@ import javax.mail.internet.MimeMessage.RecipientType;
 import javax.servlet.http.HttpServletResponse;
 
 public class EmailClass {
-	public static void sendEmail(HttpServletResponse response) throws IOException {
-		String toEmail = "receipientEmail@gmail.com";
-		String fromEmail = "yourEmailJava.j@gmail.com";
-		String password = "Your password";
 	
-
+	private final String toEmail = "receipientEmail@gmail.com";
+	private final String fromEmail = "yourEmailJava.j@gmail.com";
+	private String password = "Your password";
+	
+	public static void sendEmail(String from,String pass,String to,HttpServletResponse response) throws IOException {
+		
+		String fromEmail = from;
+		String password = pass;
+		
+		String toEmail = to;
+		
 		Properties properties = System.getProperties();
 		properties.setProperty("mail.smtp.host", "smtp.gmail.com");
 		properties.setProperty("mail.smtp.port", "587");

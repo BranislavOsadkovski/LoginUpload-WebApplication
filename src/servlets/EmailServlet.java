@@ -30,7 +30,7 @@ public class EmailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 
 	/**
@@ -39,7 +39,12 @@ public class EmailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		EmailClass.sendEmail(response);
+
+		String fromEmail = request.getParameter("fromEmail");
+		String password = request.getParameter("password");
+		String toEmail = request.getParameter("toEmail");
+
+		EmailClass.sendEmail(fromEmail,password,toEmail,response);
 	}
 
 }
