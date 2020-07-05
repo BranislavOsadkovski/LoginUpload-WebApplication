@@ -14,9 +14,9 @@ import javax.servlet.http.Part;
  * SERVLET implementation class FileUploadServlet
  */ 				
 /** specify different size parameters for upload file **/
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, 	// 10 MB
-		maxFileSize = 1024 * 1024 * 50,					// 50 MB
-		maxRequestSize = 1024 * 1024 * 100)				// 100 MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, 	    // 10 MB
+				 maxFileSize = 1024 * 1024 * 50,			// 50 MB
+				 maxRequestSize = 1024 * 1024 * 100)		// 100 MB
 public class FileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private boolean isFileUploaded = false;
@@ -26,20 +26,16 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	public FileUploadServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	private static String UPLOAD_DIR = null;
 	private String username = null;
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	/**This is just one way to write a file to the server. For FileUpload you can also use 
 	 * commons-fileupload.x.x.jar library 
 	 * and
 	 * commons-io-x.x.jar library
-	 *  **/
+	 *  
+	 */
 	private String getFileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		System.out.println("content-disposition header= " + contentDisp);
@@ -91,10 +87,11 @@ public class FileUploadServlet extends HttpServlet {
 			System.out.println("Upload file directory PATH: " + fileSaveDir.getAbsolutePath()+ "\\");
 			String fileName = null;
 
-			/**Get all the parts from request and write it to the server
+			/**
+			 * Get all the parts from request and write it to the server
 			 * 	go through all the parts of this request. The method getParts() returns a
 			 * 	Collection<part> 
-			 **/
+			 */
 			
 			for (Part part : request.getParts()) {
 				fileName = getFileName(part);

@@ -17,9 +17,9 @@ public class DbConnection {
 		/** This code is only simulating connection to the 
 		database and this code will cause an exception to be thrown
 		that will be caught by the try-catch block
-		The console print log only simulates notification DBConnection achieved
 		*/
-		try {this.conn = DriverManager.getConnection(this.dbURL, this.dbUser, this.dbPWD);} catch (SQLException e) {/**Handle Exception */}
+		try {this.conn = DriverManager.getConnection(this.dbURL, this.dbUser, this.dbPWD);} catch (SQLException e) {/**Handle Exception if it occurs*/}
+		//Notification marker
 		System.out.println("::::::::::::::::::::::::::DBConnection achieved ("+this.dbURL+", "+ this.dbUser +", "+ this.dbPWD+ ")::::::::::::::::::::::::::");
 	}
 
@@ -28,6 +28,7 @@ public class DbConnection {
 	}
 
 	public void closeConnection() {
+		//Notification marker
 		//Closing Database Connection here
 		System.out.println("::::::::::::::::::::::::Connection Closed::::::::::::::::::::::::");
 	}
