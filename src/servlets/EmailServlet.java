@@ -39,7 +39,7 @@ public class EmailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		//Of course we need condition to check the validation of the parameters this is for test purposes
 		String fromEmail = request.getParameter("fromEmail");
 		String password = request.getParameter("password");
 		String toEmail = request.getParameter("toEmail");

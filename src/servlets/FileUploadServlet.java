@@ -91,15 +91,23 @@ public class FileUploadServlet extends HttpServlet {
 			System.out.println("Upload file directory PATH: " + fileSaveDir.getAbsolutePath()+ "\\");
 			String fileName = null;
 
-			// Get all the parts from request and write it to the server
-			/**
-			 * go through all the parts of this request. The method getParts() returns a
-			 * Collection<part> 
+			/**Get all the parts from request and write it to the server
+			 * 	go through all the parts of this request. The method getParts() returns a
+			 * 	Collection<part> 
 			 **/
 			
 			for (Part part : request.getParts()) {
 				fileName = getFileName(part);
 				if(fileName.equals("") || fileName==null) {
+				/**
+				 * 			The ServletContext logs its text messages to the SERVLET container's log file. 
+				 * 		With TOMCAT these logs are found in <Tomcat-installation-directory>/logs.
+				 *		The log files do give an indication of new emerging bugs or the frequency of problems. 
+				 *		For that reason it's good to use the log() function in the catch clause of exceptions 
+				 *      which should normally not occur.
+				 */					
+					getServletContext().log("Missing parameter",new IllegalStateException("Missing parameter"));
+
 					break;
 				}
 				if(fileName!="" || fileName!=null ) {
