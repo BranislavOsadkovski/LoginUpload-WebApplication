@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletException
+ * SERVLET implementation class ServletException
  */
 @WebServlet("/MyServletExc")
 public class MyServletExc extends HttpServlet {

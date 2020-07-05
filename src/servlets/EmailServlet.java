@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import db_util.EmailClass;
 
 /**
- * Servlet implementation class EmailServlet
+ * SERVLET implementation class EmailServlet
  */
 
 public class EmailServlet extends HttpServlet {

@@ -13,7 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-//@WebFilter("/RequestLogingFilter") You can use annotations or declare 
+//@WebFilter("/RequestLogingFilter") You can use annotations or declare it in web.xml file
 public class RequestLogingFilter implements Filter {
 
 	private ServletContext context;

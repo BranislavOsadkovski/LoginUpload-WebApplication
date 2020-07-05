@@ -11,9 +11,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter("/LogFilter")/**Placed annotation in LogFilter to simulate the initialization by annotation
+@WebFilter("/LogFilter")
+/**Placed annotation in LogFilter to simulate the initialization by annotation
  so you can see that the Filter is initialized two times: 
- First time by annotation && Second time by web.xml file **/
+ First time by annotation && Second time by web.xml file so we can see from the marker the first time 
+ initial parameter will be null
+**/
 public class LogFilter implements Filter{
 	@Override
 	public void init(FilterConfig filterConfig) {
@@ -21,6 +24,7 @@ public class LogFilter implements Filter{
 		
 		//Getting initial parameter from web.xml file
 		String testParam = filterConfig.getInitParameter("test-param");
+		//Notification marker
 		System.out.println("test param : " + testParam);
 		
 	}

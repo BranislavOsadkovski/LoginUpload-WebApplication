@@ -20,6 +20,7 @@ public class AppContextListener implements ServletContextListener{
     	//Create Database Connection Object from initial parameters and set it to ServletContext
     	DbConnection dbConn = new DbConnection(user, pwd, url);
     	servletContext.setAttribute("DbConnection", dbConn);
+    	//Notification marker
     	System.out.println("DbConnection Attribute set to ServletContext");
 	}
 	

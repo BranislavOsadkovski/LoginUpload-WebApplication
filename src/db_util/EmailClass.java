@@ -16,10 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EmailClass {
 	
-	private final String toEmail = "receipientEmail@gmail.com";
-	private final String fromEmail = "yourEmailJava.j@gmail.com";
-	private String password = "Your password";
-	
 	public static void sendEmail(String from,String pass,String to,HttpServletResponse response) throws IOException {
 		
 		String fromEmail = from;
@@ -41,7 +37,9 @@ public class EmailClass {
 			}
 
 		};
-		//We create the java.mail.Session by calling Session.getInstance method 
+		/** We create the java.mail.Session by calling Session.getInstance(properties, authenticator) method 
+		or Session.getDefaultInstance(properties) 
+		*/
 		Session mailSession = Session.getInstance(properties, authenticator);
 
 		try {
