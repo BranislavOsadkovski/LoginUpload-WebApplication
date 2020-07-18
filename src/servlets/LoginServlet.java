@@ -1,6 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -50,20 +53,25 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		//Also check username in the database matching the password
+		//Check username in the database matching the password
 		if (password.equals(basePassword)) {
+			
 				response.getWriter().write(username + password);
+				
 				//Getting session object created
 				HttpSession session = request.getSession();
+				
 				//adding user to session as session attribute
 				session.setAttribute("user", username); 
+				
 				//setting session to expire in 30 min
 				session.setMaxInactiveInterval(30*60);
-				//Creating Cookie
+				
+				//Create Cookie & add cookie to response and send redirect to .jsp page
 				Cookie userCookie = new Cookie("user",username);
 				userCookie.setMaxAge(30*60);
-				//add cookie to response and send redirect to .jsp page
 				response.addCookie(userCookie);
+				
 				//Adding User Attribute to ServletContext
 				servletCtx.setAttribute("User", username);
 				
@@ -74,7 +82,6 @@ public class LoginServlet extends HttpServlet {
 				response.getWriter().print("<font color=red>Either user name or password is wrong.</font>");
 				rd.include(request, response);
 			}
-
 	}
 
 }

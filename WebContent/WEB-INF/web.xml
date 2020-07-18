@@ -75,7 +75,7 @@
 	</error-page>
 	
 	<!-- WebFilters can be declared by web.xml or using annotations
-	 But if you do both it Filter Class will be initialized first by annotations without 
+	 But if you do both Filter Class will be initialized first by annotations without 
 	 the initial parameters inside web.xml file-->
 	
 	<!-- Declare a Filter Class -->
@@ -91,6 +91,7 @@
 			<param-value>Initialization Parameter Value</param-value>
 		</init-param>
 	</filter>
+	
 	<filter>
 		<filter-name>RequestLogingFilter</filter-name>
 		<filter-class>filters.RequestLogingFilter</filter-class>

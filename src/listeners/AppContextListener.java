@@ -8,8 +8,8 @@ import javax.servlet.annotation.WebListener;
 import db_util.DbConnection;
 @WebListener
 public class AppContextListener implements ServletContextListener{
-	/**We will read ServletContext initial parameters to create the DBConnectionManager object and 
-	 * set it as attribute to the ServletContext object.
+	/**Read ServletContext initial parameters to create the DBConnectionManager object and 
+	 * set attribute to the ServletContext object.
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {

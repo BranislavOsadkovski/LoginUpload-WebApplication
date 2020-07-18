@@ -15,8 +15,8 @@ public class DbConnection {
 		this.dbPWD = PWD;
 		this.dbURL = URL;
 		/** This code is only simulating connection to the 
-		database and this code will cause an exception to be thrown
-		that will be caught by the try-catch block
+			database and this code will cause an exception to be thrown
+			that will be caught by the try-catch block
 		*/
 		try {this.conn = DriverManager.getConnection(this.dbURL, this.dbUser, this.dbPWD);} catch (SQLException e) {/**Handle Exception if it occurs*/}
 		//Notification marker
@@ -28,8 +28,8 @@ public class DbConnection {
 	}
 
 	public void closeConnection() {
+		//Closing resources & Database Connection 
 		//Notification marker
-		//Closing Database Connection here
 		System.out.println("::::::::::::::::::::::::Connection Closed::::::::::::::::::::::::");
 	}
 }

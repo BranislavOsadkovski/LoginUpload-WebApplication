@@ -48,6 +48,6 @@ public class AuthenticationFilter implements Filter{
 	/* Called before the Filter instance is removed from service by the web container */
 	@Override
 	public void destroy() {
-		//Closing resources here
+		//Closing resources 
 	}
 }

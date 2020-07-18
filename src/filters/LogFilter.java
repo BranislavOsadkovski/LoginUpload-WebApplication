@@ -9,14 +9,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 
-@WebFilter("/LogFilter")
-/**Placed annotation in LogFilter to simulate the initialization by annotation
- so you can see that the Filter is initialized two times: 
- First time by annotation && Second time by web.xml file so we can see from the marker the first time 
- initial parameter will be null
-**/
 public class LogFilter implements Filter{
 	@Override
 	public void init(FilterConfig filterConfig) {
@@ -46,7 +39,7 @@ public class LogFilter implements Filter{
 	/* Called before the Filter instance is removed from service by the web container*/
 	@Override
 	public void destroy() {
-		//Here we can close resources
+		//Close resources
 	}
 
 }
