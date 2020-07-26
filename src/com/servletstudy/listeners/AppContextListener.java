@@ -5,11 +5,11 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import com.servletstudy.db_util.DbConnection;
+import com.servletstudy.dbUtil.DbConnection;
 @WebListener
 public class AppContextListener implements ServletContextListener{
-	/**Read ServletContext initial parameters to create the DBConnectionManager object and 
-	 * set attribute to the ServletContext object.
+	/**Read ServletContext initial parameters and create the DBConnectionManager object and 
+	 * set it as attribute to the ServletContext
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -24,11 +24,13 @@ public class AppContextListener implements ServletContextListener{
     	System.out.println("DbConnection Attribute set to ServletContext");
 	}
 	
-	/**Closing Connection When ServletContext Destroyed method is called**/
+	/**
+	 * Close Connection When ServletContext is destroyed 
+	*/
 	@Override
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
-		//Getting DbConnection Object from ServletContext Attribute 
+		//Get DbConnection Object from ServletContext Attribute 
 		DbConnection dbConn = (DbConnection) servletContext.getAttribute("DbConnection");
 		dbConn.closeConnection(); 	 	
 	}

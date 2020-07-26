@@ -31,19 +31,18 @@
 	}
 	%>
 	<h3>
-		 Hi <font color=red> <%=username_cookie%>
-			</font>, Login succesfull. Your session ID =
-			<%=session_cookie%>
-	</h3>
-	<br>
-	<h3 style="color: blue;"><%=date%></h3>
-	<%
-		/**response.setIntHeader method updates/sends data to client every time interval seconds set by second parameter int */
-		response.setIntHeader("Refresh", 5);
-	%>
-
-	User =
-	<%=user%>
+		Hi
+		<font color=red> <%=username_cookie%> </font>, Login succesfull. Your session ID =
+		<%=session_cookie%></h3><br>
+	<h3 style="color:blue;"><%=date %></h3> 		
+		<%
+			/**
+				response.setIntHeader method sends data from the server 
+				on time interval set by the second parameter in seconds
+			*/ 
+		   	response.setIntHeader("Refresh", 5); 
+		%>
+		User =	<%=user%>
 	<p></p>
 	<a style="color: green;" href="CheckoutPage.jsp">Go to Checkout
 		Page</a>

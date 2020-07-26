@@ -22,7 +22,6 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 			response.setContentType("text/html");
 			ServletContext servletContext = request.getServletContext();
 			Cookie [] cookies = request.getCookies();
@@ -35,7 +34,8 @@ public class LogoutServlet extends HttpServlet {
 					if(c.getName().equals("user"))userCookie=c;
 				}
 			}
-		//Invalidate session if exists
+			
+			//Invalidate session if exists
 			HttpSession session = request.getSession(false);
 			System.out.println("User = " + session.getAttribute("user"));
 			if(session!=null) {
@@ -43,7 +43,6 @@ public class LogoutServlet extends HttpServlet {
 			}
 			//Remove Attribute from ServletContext
 			servletContext.removeAttribute("User");
-			
 			//Deleting Cookies from browser by setting expiration time to zero
 			JSESSIONID.setMaxAge(0);
 			userCookie.setMaxAge(0);

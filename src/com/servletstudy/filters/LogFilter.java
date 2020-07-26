@@ -15,7 +15,7 @@ public class LogFilter implements Filter{
 	public void init(FilterConfig filterConfig) {
 		filterConfig.getServletContext().log("LogFilter initialized");
 		
-		//Getting initial parameter from web.xml file
+		//Get the initial parameter from web.xml file
 		String testParam = filterConfig.getInitParameter("test-param");
 		//Notification marker
 		System.out.println("test param : " + testParam);
@@ -25,13 +25,13 @@ public class LogFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		//Get the IP Address of client machine
+		//IP Address of client machine
 		String ipAddress = request.getRemoteAddr();
 		
 		//Log the IP address and time
 		System.out.println("Client ip : " + ipAddress + " / Time : " + new Date().toString());
 		
-		//passing request down the filter chain
+		//pass the request down the filter chain
 		chain.doFilter(request, response);
 		
 	}

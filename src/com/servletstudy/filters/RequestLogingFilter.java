@@ -13,13 +13,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+
 public class RequestLogingFilter implements Filter {
 
 	private ServletContext context;
 
 	@Override
 	public void init(FilterConfig fConfig) {
-		// Filter will be initialized with initial method when the filter gets called the first time
+		// Filter is initialized with initial method when the filter gets called the first time
 		this.context = fConfig.getServletContext();
 		this.context.log("RequestLogingFilter initialized");
 
@@ -51,6 +52,6 @@ public class RequestLogingFilter implements Filter {
 	/* Method is called before the Filter instance is removed from service by the web container*/
 	@Override
 	public void destroy() {
-		// Here can close our resources
+		//Close resources
 	}
 }

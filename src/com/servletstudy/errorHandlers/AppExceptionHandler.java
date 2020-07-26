@@ -30,7 +30,7 @@ public class AppExceptionHandler extends HttpServlet {
 		processError(request,response);
 	}
 	
-	//Create a method that will process the exception thrown by the SERVLET
+	//method that will process the exception thrown by the SERVLET
 	private void processError(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		//Analyze the exception
 		Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
@@ -50,14 +50,14 @@ public class AppExceptionHandler extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 	      out.write("<html><head><title>Exception/Error Details</title></head><body>");
-	      /**Run a check if the error type is internal server error or a code error**/
+	      /**error type is checked if its internal server error or a code error**/
 	      if(statusCode != 500){ 
 	    	  out.write("<h3>Error Details</h3>");
 	    	  out.write("<strong>Status Code</strong>:"+statusCode+"<br>");
 	    	  out.write("<strong>Requested URI</strong>:"+requestUri);
 	      }else{
-	    	  /**if the code is not 500 we would get a NullPointerException when calling Throwable.getClass() 
-	    	  that is why we check error code when calling this method**/
+	    	  /**code 500 throws a NullPointerException when calling Throwable.getClass() 
+	    	  so error code must be checked when calling this method**/
 	    	  out.write("<h3>Exception Details</h3>");
 	    	  out.write("<ul><li>Servlet Name:"+servletName+"</li>");
 	    	  out.write("<li>Exception Name:"+throwable.getClass().getName()+"</li>");

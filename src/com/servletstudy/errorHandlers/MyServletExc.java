@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MyServletExc")
 public class MyServletExc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     // Testing ExceptionHandler by throwing a new exceptionTesting the ExceptionHandler
+     // Testing ExceptionHandler by throwing a new exception
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Testing the ExceptionHandler
 		throw new ServletException("GET Method Not Supported for Servlet" + request.getClass());

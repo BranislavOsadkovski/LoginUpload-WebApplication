@@ -35,8 +35,9 @@ public class SiteCounterFilter implements Filter {
 	}
 @Override
 	public void destroy() {
-		/**Optional depending on the requirements of the application visit Count can be saved to a database
-		 * and used the next time the filter is initialized
+		/**Optional part depended on requirements of the application
+		 * hitCount can be saved to database
+		 * and updated from database the next time the filter is initialized
 		 */
 	}
 }
