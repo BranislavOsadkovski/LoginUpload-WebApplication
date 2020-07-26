@@ -1,5 +1,4 @@
 package com.servletstudy.objects;
-
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,6 +11,8 @@ public class User implements Serializable{
 
 	private int id;
 	private String name;
+	private String lastname;
+	private String email;
 	private String profession;
 	
 	public User() {	}
@@ -45,5 +46,19 @@ public class User implements Serializable{
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
+	public String getLastname() {
+		return lastname;
+	}
+	@XmlElement
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
 
+	public String getEmail() {
+		return email;
+	}
+	@XmlElement
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

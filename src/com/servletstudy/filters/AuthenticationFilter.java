@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 public class AuthenticationFilter implements Filter{
 	private ServletContext context;
 	
+	
 	@Override
 	public void init(FilterConfig fConfig) {
 		this.context = fConfig.getServletContext();
