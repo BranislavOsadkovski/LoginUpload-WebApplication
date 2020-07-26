@@ -17,12 +17,16 @@ import javax.servlet.http.HttpSession;
 @WebFilter("/AuthenticationFilter")
 public class AuthenticationFilter implements Filter{
 	private ServletContext context;
-	
+	private static ServletContext context2;
 	
 	@Override
 	public void init(FilterConfig fConfig) {
 		this.context = fConfig.getServletContext();
 		this.context.log("AuthenticationFilter initialized");
+		context2=fConfig.getServletContext();
+	}
+	public static ServletContext getServletContext() {
+		return context2;
 	}
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

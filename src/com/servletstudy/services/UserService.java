@@ -20,14 +20,14 @@ import javax.ws.rs.core.MediaType;
 
 import com.servletstudy.dbUtil.UserDAO;
 import com.servletstudy.dbUtil.UserDAOManager;
-import com.servletstudy.filters.ContextFilter;
+import com.servletstudy.filters.AuthenticationFilter;
 import com.servletstudy.objects.User;
 	
 @Path(value = "/userservice")
 public class UserService {
 	UserDAOManager daoManager = new UserDAOManager();
 	
-	UserDAO userDAO = daoManager.getUserDAOInstance(ContextFilter.getServletContext());
+	UserDAO userDAO = daoManager.getUserDAOInstance(AuthenticationFilter.getServletContext());
 	
 	List<User> users= userDAO.getUsers();
 	User user = null;
