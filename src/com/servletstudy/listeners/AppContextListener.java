@@ -1,11 +1,11 @@
-package listeners;
+package com.servletstudy.listeners;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import db_util.DbConnection;
+import com.servletstudy.db_util.DbConnection;
 @WebListener
 public class AppContextListener implements ServletContextListener{
 	/**Read ServletContext initial parameters to create the DBConnectionManager object and 

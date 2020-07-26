@@ -1,4 +1,4 @@
-package servlets;
+package com.servletstudy.servlets;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db_util.EmailClass;
+import com.servletstudy.db_util.EmailClass;
 
 /**
  * SERVLET implementation class EmailServlet

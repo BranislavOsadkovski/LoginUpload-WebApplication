@@ -1,4 +1,4 @@
-package db_util;
+package com.servletstudy.db_util;
 
 import java.io.IOException;
 import java.util.Date;

@@ -19,8 +19,10 @@
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null && cookies.length != 0) {
 			for (Cookie c : cookies) {
-		if (c.getName().equals("user"))username_cookie = c.getValue();
-		if (c.getName().equals("JSESSIONID"))session_cookie = c.getValue();
+		if (c.getName().equals("user"))
+			username_cookie = c.getValue();
+		if (c.getName().equals("JSESSIONID"))
+			session_cookie = c.getValue();
 			}
 		}
 
@@ -29,18 +31,25 @@
 	}
 	%>
 	<h3>
-		Hi
-		<font color=red> <%=username_cookie%> </font>, Login succesfull. Your session ID =
-		<%=session_cookie%></h3><br> 
-		<h3 style="color:blue;"><%=date %></h3> 		
-		<%/**For auto refresh and to update data or time in this case 
-		we can use the method response.setIntHeader */ 
-		response.setIntHeader("Refresh", 1); %>
-	User =	<%=user%>
+		 Hi <font color=red> <%=username_cookie%>
+			</font>, Login succesfull. Your session ID =
+			<%=session_cookie%>
+	</h3>
+	<br>
+	<h3 style="color: blue;"><%=date%></h3>
+	<%
+		/**response.setIntHeader method updates/sends data to client every time interval seconds set by second parameter int */
+		response.setIntHeader("Refresh", 5);
+	%>
+
+	User =
+	<%=user%>
 	<p></p>
-	<a style="color:green;" href="CheckoutPage.jsp">Go to Checkout Page</a>
-	<p></p><br>
-	<form action="LogoutServlet" method="post"> 
+	<a style="color: green;" href="CheckoutPage.jsp">Go to Checkout
+		Page</a>
+	<p></p>
+	<br>
+	<form action="LogoutServlet" method="post">
 		<input type="submit" value="Logout">
 	</form>
 </body>

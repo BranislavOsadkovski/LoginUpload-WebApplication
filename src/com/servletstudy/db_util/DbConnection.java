@@ -1,4 +1,4 @@
-package db_util;
+package com.servletstudy.db_util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
