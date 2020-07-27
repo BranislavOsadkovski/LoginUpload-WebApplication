@@ -26,7 +26,7 @@ import com.servletstudy.objects.User;
 public class UserService {
 	
 	private UserDAOManager daoManager = new UserDAOManager();
-	private UserDAO userDAO = daoManager.getUserDAOInstance();
+	private UserDAO userDAO = daoManager.getUserDAOInstance(); 
 	private List<User> users= userDAO.getUsers();
 	private User user = null;
 	
