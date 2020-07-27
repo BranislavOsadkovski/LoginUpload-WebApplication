@@ -50,71 +50,24 @@ public class UserService {
 			@FormParam("profession") String profession,
 			@Context HttpServletResponse response) {
 		
-//			userDAO.createUser(name,lastname,email,profession);
-			this.users = new ArrayList<User>();
-			int id = 1;
-			this.user = new User();
-			user.setName(name);
-			user.setLastname(lastname);
-			user.setEmail(email);
-			user.setProfession(profession);
-			
-			if(users.isEmpty()) {
-				user.setId(id);
-			}else {
-				for(User u : users) {
-					id = u.getId();
-				}
-				user.setId(id+1);
-			}
-			users.add(user);
-			File userFile = new File("UserDatabaseServlet.dat");
-			try (
-				FileOutputStream fos = new FileOutputStream(userFile);
-				ObjectOutputStream bos = new ObjectOutputStream(fos);)
-			{ 
-				bos.writeObject(users);
-				bos.close();
-				
-			}catch (IOException e) {
-				e.printStackTrace();
-			}
-		
+			userDAO.createUser(name,lastname,email,profession);
 		
 	}
 	
 	@PUT
 	@Path("/edituser")
-	public void editUser() {
+	@Produces(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public void editUser(
+			@FormParam("nameOfUser") String nameOfUser,
+			@FormParam("lastNameOfUser") String lastNameOfUser,
+			@FormParam("name") String name,
+			@FormParam("lastname") String lastname,
+			@FormParam("email") String email,
+			@FormParam("profession") String profession,
+			@Context HttpServletResponse response) {
 		
-			
-			int id = 1;
-			this.user = new User();
-			user.setName("Bane");
-			user.setLastname("sada");
-			user.setEmail("email@.neli.com");
-			user.setProfession("profesioanle");
-			
-			if(users.isEmpty()) {
-				user.setId(id);
-			}else {
-				for(User u : users) {
-					id = u.getId();
-				}
-				user.setId(id+1);
-			}
-			users.add(user);
-			File userFile = new File("C:\\Users\\osadk\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\ServletStudyFilterTest\\UserDatabaseServlet.dat");
-			try (FileOutputStream fos = new FileOutputStream(userFile);
-				ObjectOutputStream bos = new ObjectOutputStream(fos); )
-			{ 			
-				bos.writeObject(users);
-				bos.close();
-				
-			}catch (IOException e) {
-				e.printStackTrace();
-			}
-		
+			userDAO.editUser(nameOfUser,lastNameOfUser,name,lastname,email,profession);
 		
 	}
 }

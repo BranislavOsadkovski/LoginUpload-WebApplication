@@ -41,7 +41,7 @@ public class UserDAO {
 	}
 	
 	public void createUser(String name,String lastname,String email,String profession) {
-		this.users = new ArrayList<User>();
+
 		int id = 1;
 		this.user = new User();
 		user.setName(name);
@@ -55,17 +55,54 @@ public class UserDAO {
 			for(User u : users) {
 				id = u.getId();
 			}
-			user.setId(id++);
+			user.setId(id+1);
 		}
 		users.add(user);
+		
 		try (FileOutputStream fos = new FileOutputStream(this.userFile);
-				ObjectOutputStream bos = new ObjectOutputStream(fos); )
-		{
+			ObjectOutputStream bos = new ObjectOutputStream(fos); )
+		{ 			
 			bos.writeObject(users);
 			bos.close();
 			
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
+	
+	
+	}
+
+	public void editUser(String nameOfUser,String lastNameOfUser,String name, String lastname, String email, String profession) {
+		
+		user = new User();
+		user.setName(nameOfUser);
+		user.setLastname(lastNameOfUser);
+		
+		User editUser = new User();
+		editUser.setName(name);
+		editUser.setLastname(lastname);
+		editUser.setEmail(email);
+		editUser.setProfession(profession);
+		
+		if(users.isEmpty()) {
+				// throw new Exception
+		}else {
+			for(User u : users) {
+				if(user.getName().equals(u.getName())&& user.getLastname().equals(u.getLastname())) {
+					//Commit changes 
+					u=editUser;
+				}
+			}
+		}		
+		try (FileOutputStream fos = new FileOutputStream(this.userFile);
+			ObjectOutputStream bos = new ObjectOutputStream(fos); )
+		{ 			
+			bos.writeObject(users);
+			bos.close();
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
