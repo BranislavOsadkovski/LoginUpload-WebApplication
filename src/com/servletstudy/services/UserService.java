@@ -1,10 +1,5 @@
 package com.servletstudy.services;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +24,6 @@ public class UserService {
 	private UserDAOManager daoManager = new UserDAOManager();
 	private UserDAO userDAO = daoManager.getUserDAOInstance(); 
 	private List<User> users= userDAO.getUsers();
-	private User user = null;
 	
 	@GET
 	@Path("/users")
@@ -71,10 +65,10 @@ public class UserService {
 			userDAO.editUser(nameOfUser,lastNameOfUser,name,lastname,email,profession);
 		
 	}
-	   @OPTIONS
-	   @Path("/users")
-	   @Produces(MediaType.APPLICATION_XML)
-	   public String getSupportedOperations(){
-	      return "<operations>GET, PUT, POST, DELETE</operations>";
-	   }
+    @OPTIONS
+    @Path("/users")
+    @Produces(MediaType.APPLICATION_XML)
+    public String getSupportedOperations(){
+       return "<operations>GET, PUT, POST, DELETE</operations>";
+    }
 }
