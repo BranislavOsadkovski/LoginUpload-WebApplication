@@ -2,7 +2,6 @@ package com.servletstudy.services;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -12,7 +11,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import com.servletstudy.dbUtil.UserDAO;
@@ -37,18 +35,18 @@ public class UserService {
 	
 	@POST
 	@Path("/users")
-	@Produces(MediaType.APPLICATION_XML)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_XML)
 	public String createUser(
-			@FormParam("name") String name,
+			@FormParam("name") String name		,
 			@FormParam("lastname") String lastname,
 			@FormParam("email") String email,
-			@FormParam("profession") String profession,
-			@Context HttpServletResponse response) {
-		
+			@FormParam("profession") String profession) {
+
 			userDAO.createUser(name,lastname,email,profession);
 			
-		return "<result> SUCCESS </result>";
+		return "<result>SUCCESS </result>";
+
 	}
 	
 	@PUT
@@ -60,8 +58,7 @@ public class UserService {
 			@FormParam("name") String name,
 			@FormParam("lastname") String lastname,
 			@FormParam("email") String email,
-			@FormParam("profession") String profession,
-			@Context HttpServletResponse response) {
+			@FormParam("profession") String profession) {
 		
 			userDAO.editUser(id,name,lastname,email,profession);
 			return "<result> SUCCESS </result>";
@@ -71,8 +68,7 @@ public class UserService {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_XML)
 	public String deleteUser(
-			@FormParam("id") int id,
-			@Context HttpServletResponse response) {
+			@FormParam("id") int id) {
 		
 			userDAO.deleteUser(id);
 			

@@ -21,7 +21,7 @@ public class UserDAO {
 	private User user;
 	
 	public UserDAO() {
-		this.userFile = new File(AuthenticationFilter.getServletContext().getRealPath("")+File.pathSeparator+"UserDatabaseServlet.dat");
+		this.userFile = new File(AuthenticationFilter.getServletContext().getRealPath("")+File.separator+"UserDatabaseServlet.dat");
 	}
 	
 	public List<User> getUsers(){
@@ -74,20 +74,18 @@ public class UserDAO {
 
 	public void editUser(int id,String name, String lastname, String email, String profession) {
 		
-		user = new User();
-		user.setId(id);
-		user.setName(name);
-		user.setLastname(lastname);
-		user.setEmail(email);
-		user.setProfession(profession);
 		
 		if(users.isEmpty()) {
 				// throw new UserNotFoundException
 		}else {
 			for(User u : users) {
-				if(user.getId()==u.getId()) {
+				if(u.getId()==id) {
 					//Commit changes 
-					u=user;
+					u.setName(name);
+					u.setLastname(lastname);
+					u.setEmail(email);
+					u.setProfession(profession);
+					
 				}
 			}
 		}		

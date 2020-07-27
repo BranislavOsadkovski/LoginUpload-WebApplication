@@ -51,6 +51,14 @@
 			}
 		%>
 	</form>
+	
+	<form method="POST" action="http://localhost:8080/ServletStudyFilterTest/rest/userservice/users" enctype="application/x-www-form-urlencoded">
+    <input name="name" type="text">
+   <!--  <input name="lastname" type="text">
+    <input name="email" type="text">
+    <input name="profession" type="text"> -->
+    <input type="submit" value="submit">
+</form>
 	<p></p>
 	<a style="color: green;" href="LoginSuccess.jsp">Back to Login Page</a>
 	<p></p>
@@ -58,6 +66,8 @@
 		<input type="submit" value="Logout" />
 	</form>
 
+
+<br>
 
 </body>
 </html>
