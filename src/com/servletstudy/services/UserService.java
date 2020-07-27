@@ -64,6 +64,16 @@ public class UserService {
 			userDAO.editUser(id,name,lastname,email,profession);
 		
 	}
+	@PUT
+	@Path("/users")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public void deleteUser(
+			@FormParam("id") int id,
+			@Context HttpServletResponse response) {
+		
+			userDAO.deleteUser(id);
+	}
+	
 	
     @OPTIONS
     @Path("/users")

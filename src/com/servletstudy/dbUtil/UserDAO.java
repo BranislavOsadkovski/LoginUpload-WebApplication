@@ -102,4 +102,27 @@ public class UserDAO {
 		}
 		
 	}
+	
+public void deleteUser(int id) {
+		
+		if(users.isEmpty()) {
+				// throw new UserNotFoundException
+		}else {
+			for(User u : users) {
+				if(id==u.getId()) {
+					users.remove(u);
+				}
+			}
+		}		
+		try (FileOutputStream fos = new FileOutputStream(this.userFile);
+			ObjectOutputStream bos = new ObjectOutputStream(fos); )
+		{ 			
+			bos.writeObject(users);
+			bos.close();
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
