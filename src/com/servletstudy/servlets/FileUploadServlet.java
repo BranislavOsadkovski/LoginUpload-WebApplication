@@ -12,7 +12,8 @@ import javax.servlet.http.Part;
 
 /**
  * SERVLET implementation class FileUploadServlet
- */ 				
+ */ 
+
 /** specify different size parameters for upload file **/
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, 	    // 10 MB
 				 maxFileSize = 1024 * 1024 * 50,			// 50 MB
@@ -70,11 +71,9 @@ public class FileUploadServlet extends HttpServlet {
 			File fileSaveDir = new File(uploadFilePath);
 			if (!fileSaveDir.exists()) {
 				fileSaveDir.mkdir(); 
-				/**		I am using TOMCAT through eclipse so the path is different if you were to use TOMCAT from CMD
-				 * set your file path as shown in the example, there is also another way that
-				 * you can set your directory in web.xml and access it as ServletContext Initial Parameters the same way   
-				 * shown in WebListener -> AppContextListener 
-				 *   
+				/**		I am using TOMCAT through eclipse so the path is different
+				 * 
+				 * File path set as parameter for using from CMD TOMCAT9 	
 				 *<context-param> 
 				 * 		<description>Location to store uploaded file</description> 
 				 *  	<param-name>file-upload</param-name> 

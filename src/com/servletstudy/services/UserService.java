@@ -20,7 +20,6 @@ import javax.ws.rs.core.MediaType;
 
 import com.servletstudy.dbUtil.UserDAO;
 import com.servletstudy.dbUtil.UserDAOManager;
-import com.servletstudy.filters.AuthenticationFilter;
 import com.servletstudy.objects.User;
 	
 @Path(value = "/userservice")

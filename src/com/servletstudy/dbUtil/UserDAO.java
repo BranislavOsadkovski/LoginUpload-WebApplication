@@ -25,11 +25,11 @@ public class UserDAO {
 	}
 	
 	public List<User> getUsers(){
-		try {
-		FileInputStream fis =  new FileInputStream(userFile);
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		this.users=(List<User>)ois.readObject();
-		ois.close();
+		
+		try (FileInputStream fis =  new FileInputStream(userFile);
+				ObjectInputStream ois = new ObjectInputStream(fis); ){
+			this.users=(List<User>)ois.readObject();
+			ois.close();
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
@@ -56,9 +56,9 @@ public class UserDAO {
 			user.setId(id++);
 		}
 		users.add(user);
-		try {
-			FileOutputStream fos = new FileOutputStream(this.userFile);
-			ObjectOutputStream bos = new ObjectOutputStream(fos);
+		try (FileOutputStream fos = new FileOutputStream(this.userFile);
+				ObjectOutputStream bos = new ObjectOutputStream(fos); ){
+			
 			bos.writeObject(users);
 			bos.close();
 		}catch (IOException e) {

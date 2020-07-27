@@ -16,9 +16,14 @@ public class DbConnection {
 		this.dbURL = URL;
 		/** This code is only simulating connection to the 
 		database and this code will cause an exception to be thrown
-		that will be caught by the try-catch block
+		that will be caught and handled by the try-catch block
 		*/
-		try {this.conn = DriverManager.getConnection(this.dbURL, this.dbUser, this.dbPWD);} catch (SQLException e) {/**Handle Exception if it occurs*/}
+		try {
+			this.conn = DriverManager.getConnection(this.dbURL, this.dbUser, this.dbPWD);
+			} 
+		catch (SQLException e) {
+				/**Handle Exception if it occurs*/
+			}
 		//Notification marker
 		System.out.println("::::::::::::::::::::::::::DBConnection achieved ("+this.dbURL+", "+ this.dbUser +", "+ this.dbPWD+ ")::::::::::::::::::::::::::");
 	}

@@ -45,7 +45,9 @@ public class AppExceptionHandler extends HttpServlet {
 			requestUri="Unknown";
 			
 		}
-		
+		/**Adapt the Client view and help him redirect back to application 
+		 * OPTIONAL(Recommended) : Provide error report option to get the client feedback about the error/exception
+		 */
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
