@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import com.servletstudy.filters.AuthenticationFilter;
 import com.servletstudy.objects.User;
 
 public class UserDAO {
@@ -19,13 +20,10 @@ public class UserDAO {
 	private File userFile = null;
 	private User user;
 	
-	public UserDAO(ServletContext context) {
-		String PATH = context.getRealPath("");
-		this.userFile = new File(PATH+File.separator+"UserDatabaseServlet.dat");
+	public UserDAO() {
+		this.userFile = new File(AuthenticationFilter.getServletContext().getRealPath("")+File.separator+"UserDatabaseServlet.dat");
 	}
 	
-
-
 	public List<User> getUsers(){
 		try {
 		FileInputStream fis =  new FileInputStream(userFile);

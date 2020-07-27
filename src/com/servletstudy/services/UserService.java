@@ -25,13 +25,11 @@ import com.servletstudy.objects.User;
 	
 @Path(value = "/userservice")
 public class UserService {
-	UserDAOManager daoManager = new UserDAOManager();
 	
-	UserDAO userDAO = daoManager.getUserDAOInstance(AuthenticationFilter.getServletContext());
-	
-	List<User> users= userDAO.getUsers();
-	User user = null;
-	
+	private UserDAOManager daoManager = new UserDAOManager();
+	private UserDAO userDAO = daoManager.getUserDAOInstance();
+	private List<User> users= userDAO.getUsers();
+	private User user = null;
 	
 	@GET
 	@Path("/users")

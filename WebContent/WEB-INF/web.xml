@@ -24,7 +24,7 @@
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>FileUploadServlet</servlet-name>
-		<servlet-class>>com.servletstudy.servlets.FileUploadServlet</servlet-class>	
+		<servlet-class>com.servletstudy.servlets.FileUploadServlet</servlet-class>	
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FileUploadServlet</servlet-name>
@@ -32,7 +32,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>EmailServlet</servlet-name>
-		<servlet-class>>com.servletstudy.servlets.EmailServlet</servlet-class>	
+		<servlet-class>com.servletstudy.servlets.EmailServlet</servlet-class>	
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>EmailServlet</servlet-name>
