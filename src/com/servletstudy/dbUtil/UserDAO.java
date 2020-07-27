@@ -21,15 +21,17 @@ public class UserDAO {
 	private User user;
 	
 	public UserDAO() {
-		this.userFile = new File(AuthenticationFilter.getServletContext().getRealPath("")+File.separator+"UserDatabaseServlet.dat");
+		this.userFile = new File(AuthenticationFilter.getServletContext().getRealPath("")+File.pathSeparator+"UserDatabaseServlet.dat");
 	}
 	
 	public List<User> getUsers(){
 		
 		try (FileInputStream fis =  new FileInputStream(userFile);
-				ObjectInputStream ois = new ObjectInputStream(fis); ){
+				ObjectInputStream ois = new ObjectInputStream(fis); )
+		{
 			this.users=(List<User>)ois.readObject();
 			ois.close();
+			
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
@@ -57,10 +59,11 @@ public class UserDAO {
 		}
 		users.add(user);
 		try (FileOutputStream fos = new FileOutputStream(this.userFile);
-				ObjectOutputStream bos = new ObjectOutputStream(fos); ){
-			
+				ObjectOutputStream bos = new ObjectOutputStream(fos); )
+		{
 			bos.writeObject(users);
 			bos.close();
+			
 		}catch (IOException e) {
 			e.printStackTrace();
 		}

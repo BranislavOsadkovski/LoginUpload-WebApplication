@@ -68,11 +68,14 @@ public class UserService {
 				user.setId(id+1);
 			}
 			users.add(user);
-			try { File userFile = new File("UserDatabaseServlet.dat");
+			File userFile = new File("UserDatabaseServlet.dat");
+			try (
 				FileOutputStream fos = new FileOutputStream(userFile);
-				ObjectOutputStream bos = new ObjectOutputStream(fos);
+				ObjectOutputStream bos = new ObjectOutputStream(fos);)
+			{ 
 				bos.writeObject(users);
 				bos.close();
+				
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -101,13 +104,13 @@ public class UserService {
 				user.setId(id+1);
 			}
 			users.add(user);
-			try { 
-				File userFile = new File("C:\\Users\\osadk\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\ServletStudyFilterTest\\UserDatabaseServlet.dat");
-				FileOutputStream fos = new FileOutputStream(userFile);
-				ObjectOutputStream bos = new ObjectOutputStream(fos);
+			File userFile = new File("C:\\Users\\osadk\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\ServletStudyFilterTest\\UserDatabaseServlet.dat");
+			try (FileOutputStream fos = new FileOutputStream(userFile);
+				ObjectOutputStream bos = new ObjectOutputStream(fos); )
+			{ 			
 				bos.writeObject(users);
-				bos.flush();
 				bos.close();
+				
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
