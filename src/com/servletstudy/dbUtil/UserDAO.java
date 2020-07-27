@@ -72,25 +72,22 @@ public class UserDAO {
 	
 	}
 
-	public void editUser(String nameOfUser,String lastNameOfUser,String name, String lastname, String email, String profession) {
+	public void editUser(int id,String name, String lastname, String email, String profession) {
 		
 		user = new User();
-		user.setName(nameOfUser);
-		user.setLastname(lastNameOfUser);
-		
-		User editUser = new User();
-		editUser.setName(name);
-		editUser.setLastname(lastname);
-		editUser.setEmail(email);
-		editUser.setProfession(profession);
+		user.setId(id);
+		user.setName(name);
+		user.setLastname(lastname);
+		user.setEmail(email);
+		user.setProfession(profession);
 		
 		if(users.isEmpty()) {
-				// throw new Exception
+				// throw new UserNotFoundException
 		}else {
 			for(User u : users) {
-				if(user.getName().equals(u.getName())&& user.getLastname().equals(u.getLastname())) {
+				if(user.getId()==u.getId()) {
 					//Commit changes 
-					u=editUser;
+					u=user;
 				}
 			}
 		}		

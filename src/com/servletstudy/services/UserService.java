@@ -54,17 +54,17 @@ public class UserService {
 	@Produces(MediaType.APPLICATION_XML)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public void editUser(
-			@FormParam("nameOfUser") String nameOfUser,
-			@FormParam("lastNameOfUser") String lastNameOfUser,
+			@FormParam("id") int id,
 			@FormParam("name") String name,
 			@FormParam("lastname") String lastname,
 			@FormParam("email") String email,
 			@FormParam("profession") String profession,
 			@Context HttpServletResponse response) {
 		
-			userDAO.editUser(nameOfUser,lastNameOfUser,name,lastname,email,profession);
+			userDAO.editUser(id,name,lastname,email,profession);
 		
 	}
+	
     @OPTIONS
     @Path("/users")
     @Produces(MediaType.APPLICATION_XML)
