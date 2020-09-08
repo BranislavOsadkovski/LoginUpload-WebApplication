@@ -22,6 +22,7 @@ public class UserDAO {
 		this.userFile = new File(AuthenticationFilter.getServletContext().getRealPath("")+File.separator+"UserDatabaseServlet.dat");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<User> getUsers(){
 		
 		try (FileInputStream fis =  new FileInputStream(userFile);
