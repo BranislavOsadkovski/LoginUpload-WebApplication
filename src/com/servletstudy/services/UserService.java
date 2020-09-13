@@ -13,8 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.Response.StatusType;
+import javax.ws.rs.core.Response.Status; 
 
 import com.servletstudy.dbUtil.UserDAO;
 import com.servletstudy.dbUtil.UserDAOManager;
