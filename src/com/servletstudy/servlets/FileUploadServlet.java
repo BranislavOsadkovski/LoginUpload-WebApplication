@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.log4j.Logger;
+
 /**
  * SERVLET implementation class FileUploadServlet
  */ 
@@ -19,6 +21,7 @@ import javax.servlet.http.Part;
 				 maxFileSize = 1024 * 1024 * 50,			// 50 MB
 				 maxRequestSize = 1024 * 1024 * 100)		// 100 MB
 public class FileUploadServlet extends HttpServlet {
+	private final static Logger logger = Logger.getLogger(FileUploadServlet.class);
 	private static final long serialVersionUID = 1L;
 	private boolean isFileUploaded = false;
 	private String fileExists = null;
@@ -83,7 +86,7 @@ public class FileUploadServlet extends HttpServlet {
 				 *</context-param>
 				 */
 			}
-			System.out.println("Upload file directory PATH: " + fileSaveDir.getAbsolutePath()+ "\\");
+			logger.info("Upload file directory PATH: " + fileSaveDir.getAbsolutePath()+ "\\");
 			String fileName = null;
 
 			/**
@@ -102,7 +105,7 @@ public class FileUploadServlet extends HttpServlet {
 				 *		For that reason it's good to use the log() function in the catch clause of exceptions 
 				 *      which should normally not occur.
 				 */					
-					getServletContext().log("Missing parameter",new IllegalStateException("Missing parameter"));
+					logger.info("Missing parameter",new IllegalStateException("Missing parameter"));
 
 					break;
 				}
@@ -110,11 +113,13 @@ public class FileUploadServlet extends HttpServlet {
 					
 						File file = new File(fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
 						if(file.exists()) {
+							logger.warn("File with this name already exists on server");
 							fileExists="File with this name already exists on server";
 							request.getSession().setAttribute("fileExists", fileExists);
 						}else {
 							part.write(fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
 							isFileUploaded = true;
+							logger.info("File uploaded succesfully " + fileSaveDir.getAbsolutePath()+ "\\"+this.username + File.pathSeparator + fileName);
 						}
 				
 				}

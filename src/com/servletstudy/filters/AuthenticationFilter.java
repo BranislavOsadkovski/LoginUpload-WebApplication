@@ -14,15 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 @WebFilter("/AuthenticationFilter")
 public class AuthenticationFilter implements Filter{
-	private ServletContext context;
+	private static final Logger logger = Logger.getLogger(AuthenticationFilter.class); 
 	private static ServletContext context2;
 	
 	@Override
-	public void init(FilterConfig fConfig) {
-		this.context = fConfig.getServletContext();
-		this.context.log("AuthenticationFilter initialized");
+	public void init(FilterConfig fConfig) { 
+		logger.info("AuthenticationFilter initialized");
 		context2=fConfig.getServletContext();
 	}
 	public static ServletContext getServletContext() {
@@ -36,12 +37,12 @@ public class AuthenticationFilter implements Filter{
 		HttpServletResponse httpResponse = (HttpServletResponse)response;
 		
 		String uri = httpRequest.getRequestURI();
-		this.context.log("Requested Resource : " +uri);
+		logger.info("Requested Resource : " +uri);
 		
 		HttpSession session = httpRequest.getSession(false);
 		
 		if(session==null && !(uri.endsWith("html") || uri.endsWith("LoginServlet"))) {
-			this.context.log("Unauthorized access request");
+			logger.info("Unauthorized access request");
 			httpResponse.setStatus(403);
 			httpResponse.sendRedirect("/ServletStudyFilterTest/login.html");
 		}else {
@@ -53,6 +54,7 @@ public class AuthenticationFilter implements Filter{
 	/* Called before the Filter instance is removed from service by the web container */
 	@Override
 	public void destroy() {
+		logger.info("Filter Destroyed");
 		//Closing resources
 	}
 }

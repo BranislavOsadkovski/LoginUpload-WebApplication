@@ -101,8 +101,8 @@
 		<!-- Configure Initial parameter name and value that will be set and passed 
 			to the Filter Class -->
 		<init-param>
-			<param-name>test-param</param-name>
-			<param-value>Initialization Parameter Value</param-value>
+			<param-name>password-param</param-name>
+			<param-value>Tomcat</param-value>
 		</init-param>
 	</filter>
 	<filter>

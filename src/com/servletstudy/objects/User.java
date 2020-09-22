@@ -1,9 +1,9 @@
 package com.servletstudy.objects;
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.sun.xml.internal.txw2.annotation.XmlElement;
+ 
 
 @XmlRootElement(name = "user")
 public class User implements Serializable{

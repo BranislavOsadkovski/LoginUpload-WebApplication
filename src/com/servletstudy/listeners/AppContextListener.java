@@ -5,12 +5,15 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.apache.log4j.Logger;
+
 import com.servletstudy.dbUtil.DbConnection;
 @WebListener
 public class AppContextListener implements ServletContextListener{
 	/**Read ServletContext initial parameters and create the DBConnectionManager object and 
 	 * set it as attribute to the ServletContext
 	 */
+	private final static Logger logger = Logger.getLogger(AppContextListener.class);
 	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
@@ -21,7 +24,7 @@ public class AppContextListener implements ServletContextListener{
     	DbConnection dbConn = new DbConnection(user, pwd, url);
     	servletContext.setAttribute("DbConnection", dbConn);
     	//Notification marker
-    	System.out.println("DbConnection Attribute set to ServletContext");
+    	logger.info("DbConnection Attribute set to ServletContext");
 	}
 	
 	/**
@@ -31,6 +34,7 @@ public class AppContextListener implements ServletContextListener{
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
 		//Get DbConnection Object from ServletContext Attribute 
+		logger.info("AppContext destroyed");
 		DbConnection dbConn = (DbConnection) servletContext.getAttribute("DbConnection");
 		dbConn.closeConnection(); 	 	
 	}

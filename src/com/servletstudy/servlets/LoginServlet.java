@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 /**
  * SERVLET implementation class LoginServlet
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private final String basePassword = "tomcat";
+	private final static Logger logger = Logger.getLogger(LoginServlet.class); 
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -47,12 +48,12 @@ public class LoginServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
+		String attributePassword=(String) request.getServletContext().getAttribute("password");
 		//Check username in the database matching the password
-		if (password.equals(basePassword)) {
+		if (password.equals(attributePassword)) {
 			
 				response.getWriter().write(username + password);
-			
+				logger.info("User LOGGED IN {username:"+username);
 				//Getting session object created
 				HttpSession session = request.getSession();
 				
@@ -73,6 +74,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("LoginSuccess.jsp");
 			 
 			} else {
+				logger.info("Fail Login Attempt username:"+username);
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
 				response.getWriter().print("<font color=red>Either user name or password is wrong.</font>");
 				rd.include(request, response);

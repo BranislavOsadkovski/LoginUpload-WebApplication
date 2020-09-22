@@ -10,15 +10,18 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.apache.log4j.Logger;
+
 public class LogFilter implements Filter{
+	private static final Logger logger = Logger.getLogger(LogFilter.class); 
 	@Override
 	public void init(FilterConfig filterConfig) {
 		filterConfig.getServletContext().log("LogFilter initialized");
 		
 		//Get the initial parameter from web.xml file
-		String testParam = filterConfig.getInitParameter("test-param");
-		//Notification marker
-		System.out.println("test param : " + testParam);
+		String password = filterConfig.getInitParameter("password-param");
+		filterConfig.getServletContext().setAttribute("password", password);
+		//Notification marker 
 		
 	}
 	
@@ -29,7 +32,7 @@ public class LogFilter implements Filter{
 		String ipAddress = request.getRemoteAddr();
 		
 		//Log the IP address and time
-		System.out.println("Client ip : " + ipAddress + " / Time : " + new Date().toString());
+		logger.info("Client ip : " + ipAddress + " / Time : " + new Date().toString());
 		
 		//pass the request down the filter chain
 		chain.doFilter(request, response);
@@ -39,6 +42,7 @@ public class LogFilter implements Filter{
 	/* Called before the Filter instance is removed from service by the web container*/
 	@Override
 	public void destroy() {
+		logger.info("Log Filter destroyed");
 		//Close resources
 	}
 

@@ -5,24 +5,24 @@ import java.util.Enumeration;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
+import javax.servlet.FilterConfig; 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 
 public class RequestLogingFilter implements Filter {
-
-	private ServletContext context;
-
+ 
+	private static final Logger logger = Logger.getLogger(RequestLogingFilter.class); 
 	@Override
 	public void init(FilterConfig fConfig) {
 		// Filter is initialized with initial method when the filter gets called the first time
-		this.context = fConfig.getServletContext();
-		this.context.log("RequestLogingFilter initialized");
+		 
+		logger.info("RequestLogingFilter initialized");
 
 	}
 
@@ -31,17 +31,18 @@ public class RequestLogingFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		Enumeration<String> params = httpRequest.getParameterNames();
+		
 		while (params.hasMoreElements()) {
 			String name = params.nextElement();
 			String value = request.getParameter(name);
-			this.context.log(httpRequest.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
+			logger.info(httpRequest.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
 
 		}
 
 		Cookie[] cookies = httpRequest.getCookies();
 		if (cookies != null) {
 			for (Cookie c : cookies) {
-				this.context.log(httpRequest.getRemoteAddr() + "::Cookie::{" + c.getName() + ":" + c.getValue() + "}");
+				logger.info(httpRequest.getRemoteAddr() + "::Cookie::{" + c.getName() + ":" + c.getValue() + "}");
 
 			}
 		}
@@ -52,6 +53,7 @@ public class RequestLogingFilter implements Filter {
 	/* Method is called before the Filter instance is removed from service by the web container*/
 	@Override
 	public void destroy() {
+		logger.info("RequestLogingFilter destroyed");
 		//Close resources
 	}
 }

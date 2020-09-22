@@ -11,13 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 /**
  * SERVLET implementation class LogoutServlet
  */
 @WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+
+	private final static Logger logger = Logger.getLogger(LogoutServlet.class); 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -34,18 +37,22 @@ public class LogoutServlet extends HttpServlet {
 					if(c.getName().equals("user"))userCookie=c;
 				}
 			}
-			
+
 			//Invalidate session if exists
 			HttpSession session = request.getSession(false);
-			System.out.println("User = " + session.getAttribute("user"));
+
+			logger.info("  User = " + session.getAttribute("user") +"Loggin OUT");
+			logger.info("Invalidating session for User = " + session.getAttribute("user"));
 			if(session!=null) {
-				session.invalidate();
+				session.invalidate(); 
 			}
 			//Remove Attribute from ServletContext
 			servletContext.removeAttribute("User");
 			//Deleting Cookies from browser by setting expiration time to zero
 			JSESSIONID.setMaxAge(0);
 			userCookie.setMaxAge(0);
+			logger.info("deletting session cookie");
+			logger.info("deleting user cookie");
 			
 			response.addCookie(JSESSIONID);
 			response.addCookie(userCookie);
