@@ -7,7 +7,7 @@ File is uploaded with a form, and user gets notified if the file is uploaded suc
 
 * **Security** 
 
-Application security is handled by the Filters, if the user is not logged in, or is not authorized to access the page gets redirected to the login.html page.
+Application security is handled by the Filters, if the user is not logged in, or is not authorized to access the page user automaticaly gets redirected to the login.html page.
 Any exceptions,errors or HTTP error codes are being handled by the AppExceptHandler class. ExceptionHandler works as a Filter catching all error and exception from interupting the
 user experience on the website and showing a custom html message with a redirect link if any are thrown.
 
