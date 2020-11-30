@@ -3,7 +3,8 @@
 * **Description**
 
 Java Web application, user can login to see the welcome page, and move on to the page to upload a file. 
-File is uploaded with a form, and user gets notified if the file is uploaded succesfully, or if the file with the same name already exists on the server
+File is uploaded with a form, and user gets notified if the file is uploaded succesfully, or if the file with the same name already exists on the server.
+File upload is managed by the FileUploadServlet that also contains the configuration for performance and size of the files
 
 * **Security** 
 
