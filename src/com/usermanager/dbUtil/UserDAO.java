@@ -1,4 +1,4 @@
-package com.servletstudy.dbUtil;
+package com.usermanager.dbUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,10 +8,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
+import com.usermanager.filters.AuthenticationFilter;
+import com.usermanager.objects.User;
 
-import com.servletstudy.filters.AuthenticationFilter;
-import com.servletstudy.objects.User;
-
+/**
+ * Replacing with JPA and HIBERNATE persistence layer 
+ */
 public class UserDAO {
 	
 	private List<User> users=null;
@@ -41,6 +43,9 @@ public class UserDAO {
 	
 	public void createUser(String name,String lastname,String email,String profession) {
 
+		/**
+		 * Replacing with JPA and HIBERNATE persistence layer 
+		 */
 		int id = 1;
 		this.user = new User();
 		user.setName(name);
@@ -49,12 +54,12 @@ public class UserDAO {
 		user.setProfession(profession);
 		
 		if(users.isEmpty()) {
-			user.setId(id);
+//			user.setId(id);
 		}else {
 			for(User u : users) {
-				id = u.getId();
+//				id = u.getId();
 			}
-			user.setId(id+1);
+//			user.setId(id+1);
 		}
 		users.add(user);
 		

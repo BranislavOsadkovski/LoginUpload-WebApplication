@@ -1,4 +1,4 @@
-package com.servletstudy.listeners;
+package com.usermanager.listeners;
 
 import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletContextAttributeListener;

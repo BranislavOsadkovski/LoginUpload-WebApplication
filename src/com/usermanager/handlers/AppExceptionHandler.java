@@ -1,4 +1,4 @@
-package com.servletstudy.errorHandlers;
+package com.usermanager.handlers;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,5 +1,8 @@
-package com.servletstudy.dbUtil;
+package com.usermanager.dbUtil;
 
+/**
+ * Replacing with JPA and Hibernate persistence layer 
+ */
 public class UserDAOManager {
 	private  UserDAO userDAO= null;
 	

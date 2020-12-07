@@ -1,4 +1,4 @@
-package com.servletstudy.filters;
+package com.usermanager.filters;
 
 import java.io.IOException;
 

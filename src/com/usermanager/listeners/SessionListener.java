@@ -1,4 +1,4 @@
-package com.servletstudy.listeners;
+package com.usermanager.listeners;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
