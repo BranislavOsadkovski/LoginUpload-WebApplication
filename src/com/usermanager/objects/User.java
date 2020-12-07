@@ -35,11 +35,32 @@ public class User implements Serializable {
 	public User() {
 	}
 
+	
 	public User(Long id, String name, String profession) {
 		this.id = id;
 		this.name = name;
 		this.profession = profession;
 	}
+
+	
+	/**
+	 * @param id
+	 * @param name
+	 * @param lastname
+	 * @param email
+	 * @param profession
+	 * @param address must not be null
+	 */
+	public User(Long id, String name, String lastname, String email, String profession, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.lastname = lastname;
+		this.email = email;
+		this.profession = profession;
+		this.address = address;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -85,4 +106,19 @@ public class User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
 }
