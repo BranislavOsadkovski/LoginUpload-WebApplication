@@ -1,5 +1,7 @@
 # LoginUpload-WebApplication 
 
+# Next UPDATE ( 1. Update persistence layer to JPA and implement Hibernate, 2. improve web-service and data layer structure )
+
 * **Description**
 
 Java Web application, user can login to see the welcome page, and move on to the page to upload a file. 
