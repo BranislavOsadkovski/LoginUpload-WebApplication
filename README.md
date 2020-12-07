@@ -1,10 +1,11 @@
-# LoginUpload-WebApplication 
+# UserManagerAPI-WebApplication 
 
 # Next UPDATE ( 1. Update persistence layer to JPA and implement Hibernate, 2. improve web-service and data layer structure )
 
 * **Description**
 
-Java Web application, user can login to see the welcome page, and move on to the page to upload a file. 
+Java Web application  
+- AdminUserManager must login to go to the welcome page, AdminUserManager can upload personal and business files to the server
 File is uploaded with a form, and user gets notified if the file is uploaded succesfully, or if the file with the same name already exists on the server.
 File upload is managed by the FileUploadServlet that also contains the configuration for performance and size of the files
 
