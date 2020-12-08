@@ -6,7 +6,7 @@
 
 Java Web application-UserManagerAPI can be used to manage users and upload business files to the server, 
 - AdminUserManager must login to go to the welcome page, 
-- AdminUserManager can upload and business logs and files to the server,
+- AdminUserManager can upload business logs and files to the server,
 - File is uploaded with a form, and user gets notified if the file is uploaded succesfully, or if the file with the same name already exists on the server.
 - File upload is managed by the FileUploadServlet that also contains the configuration for performance and size of the files
 
