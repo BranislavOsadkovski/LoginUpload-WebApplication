@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String attributePassword=(String) request.getServletContext().getAttribute("password");
 		//Check username in the database matching the password
-		if (password.equals(attributePassword)) {
+		if (password.equals("password")) {
 			
 				response.getWriter().write(username + password);
 				logger.info("User LOGGED IN {username:"+username);

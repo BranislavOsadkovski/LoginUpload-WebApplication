@@ -44,7 +44,7 @@ public class AuthenticationFilter implements Filter{
 		if(session==null && !(uri.endsWith("html") || uri.endsWith("LoginServlet"))) {
 			logger.info("Unauthorized access request");
 			httpResponse.setStatus(403);
-			httpResponse.sendRedirect("/ServletStudyFilterTest/login.html");
+			httpResponse.sendRedirect("/login.html");
 		}else {
 			//pass the request along the filter chain
 			chain.doFilter(request, response);

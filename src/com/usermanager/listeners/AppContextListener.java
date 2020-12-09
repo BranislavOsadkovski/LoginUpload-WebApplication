@@ -7,7 +7,8 @@ import javax.servlet.annotation.WebListener;
 
 import org.apache.log4j.Logger;
 
-import com.usermanager.dbUtil.DbConnection;
+import com.usermanager.dbUtil.HibernateUtil;
+ 
 @WebListener
 public class AppContextListener implements ServletContextListener{
 	/**Read ServletContext initial parameters and create the DBConnectionManager object and 
@@ -17,7 +18,7 @@ public class AppContextListener implements ServletContextListener{
 	
 	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
-		
+		HibernateUtil.getHibernateSession().openSession();
 //		ServletContext servletContext = servletContextEvent.getServletContext();
 //		String url = servletContext.getInitParameter("DBURL");
 //    	String user = servletContext.getInitParameter("DBUSER");
@@ -34,11 +35,7 @@ public class AppContextListener implements ServletContextListener{
 	*/
 	@Override
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
-//		ServletContext servletContext = servletContextEvent.getServletContext();
-		//Get DbConnection Object from ServletContext Attribute 
-//		logger.info("AppContext destroyed");
-//		DbConnection dbConn = (DbConnection) servletContext.getAttribute("DbConnection");
-//		dbConn.closeConnection(); 	 	
+			HibernateUtil.getHibernateSession().close();
 	}
 
 }

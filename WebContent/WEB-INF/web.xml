@@ -3,14 +3,14 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	<display-name>Servlet_Study_test_1</display-name>
+	<display-name>usermanager</display-name>
 	
 	<servlet>
 	  	<servlet-name>Jersey RESTful Application</servlet-name>
 	  	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 	  		<init-param>
 	  		 	<param-name>jersey.config.server.provider.packages</param-name>
-	  		 	<param-value>com.servletstudy.services</param-value>
+	  		 	<param-value>com.usermanager.services</param-value>
 	  		</init-param>
     </servlet>
 	  <servlet-mapping>
@@ -24,7 +24,7 @@
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>FileUploadServlet</servlet-name>
-		<servlet-class>com.servletstudy.servlets.FileUploadServlet</servlet-class>	
+		<servlet-class>com.usermanager.servlets.FileUploadServlet</servlet-class>	
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FileUploadServlet</servlet-name>
@@ -32,7 +32,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>EmailServlet</servlet-name>
-		<servlet-class>com.servletstudy.servlets.EmailServlet</servlet-class>	
+		<servlet-class>com.usermanager.servlets.EmailServlet</servlet-class>	
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>EmailServlet</servlet-name>
@@ -60,16 +60,16 @@
 	</context-param>
 	<!-- Define Listener Classes -->
 	<listener>
-		<listener-class>com.servletstudy.listeners.AppContextAttributeListener</listener-class>
+		<listener-class>com.usermanager.listeners.AppContextAttributeListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>com.servletstudy.listeners.AppContextListener</listener-class>
+		<listener-class>com.usermanager.listeners.AppContextListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>com.servletstudy.listeners.ServletRequestListenerClass</listener-class>
+		<listener-class>com.usermanager.listeners.ServletRequestListenerClass</listener-class>
 	</listener>
 	<listener>
-		<listener-class>com.servletstudy.listeners.SessionListener</listener-class>
+		<listener-class>com.usermanager.listeners.SessionListener</listener-class>
 	</listener>
 
 	<!-- Set the configuration in case of an user error or exception -->
@@ -97,7 +97,7 @@
 		<!--Set Filter Class name -->
 		<filter-name>LogFilter</filter-name>
 		<!--Set Filter Class Path -->
-		<filter-class>com.servletstudy.filters.LogFilter</filter-class>
+		<filter-class>com.usermanager.filters.LogFilter</filter-class>
 		<!-- Configure Initial parameter name and value that will be set and passed 
 			to the Filter Class -->
 		<init-param>
@@ -107,15 +107,15 @@
 	</filter>
 	<filter>
 		<filter-name>RequestLogingFilter</filter-name>
-		<filter-class>com.servletstudy.filters.RequestLogingFilter</filter-class>
+		<filter-class>com.usermanager.filters.RequestLogingFilter</filter-class>
 	</filter>  
 	<filter>
 		<filter-name>AuthenticationFilter</filter-name>
-		<filter-class>com.servletstudy.filters.AuthenticationFilter</filter-class>
+		<filter-class>com.usermanager.filters.AuthenticationFilter</filter-class>
 	</filter>
 	<filter>
 		<filter-name>SiteCounterFilter</filter-name>
-		<filter-class>com.servletstudy.filters.SiteCounterFilter</filter-class>
+		<filter-class>com.usermanager.filters.SiteCounterFilter</filter-class>
 	</filter>
 	<!-- Set Filter Mapping -->
 	<filter-mapping>
