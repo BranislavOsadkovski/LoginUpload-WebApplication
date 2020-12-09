@@ -32,4 +32,6 @@ Log4j properties are defined in log4j.properties file.
                 - 1. Improve Object model
                 - 2. Update persistence layer to JPA and implement Hibernate, 
                 - 3. Improve web-service and data layer structure,
-                - 4. Improve front-end 
+                - 4. Improve Security,add email based AUTH
+                - 5. Improve front-end 
+                
