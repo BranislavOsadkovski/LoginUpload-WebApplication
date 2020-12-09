@@ -28,7 +28,7 @@ Application startup,performance,activity is being logged through Web Filters and
 Log4j properties are defined in log4j.properties file.
 
 
-## Next UPDATE ( 1. Update persistence layer to JPA and implement Hibernate, 2. improve web-service and data layer structure )
-
-
-
+# Next UPDATE ( - 1. Improve Object model
+                - 2. Update persistence layer to JPA and implement Hibernate, 
+                - 3. Improve web-service and data layer structure,
+                - 4. Improve front-end) 
