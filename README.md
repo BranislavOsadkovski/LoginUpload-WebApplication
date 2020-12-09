@@ -29,6 +29,7 @@ Log4j properties are defined in log4j.properties file.
 
 
 # Next UPDATE 
+                **App Re-model**
                 - 1. Improve Object model
                 - 2. Update persistence layer to JPA and implement Hibernate, 
                 - 3. Improve web-service and data layer structure,
