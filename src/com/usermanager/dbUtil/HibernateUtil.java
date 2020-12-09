@@ -18,7 +18,7 @@ public class HibernateUtil {
 	public static SessionFactory getHibernateSession() {
 
 		if (sessionFactory == null) {
-			Configuration configuration = new Configuration().configure("cfg/hibernate.cfg.xml");
+			Configuration configuration = new Configuration().configure("resources/hibernate.cfg.xml");
 			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
 			sessionFactory = configuration.buildSessionFactory(builder.build());
 			return sessionFactory;
