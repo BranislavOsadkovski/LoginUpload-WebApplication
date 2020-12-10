@@ -29,7 +29,7 @@ Log4j properties are defined in log4j.properties file.
 
 
 # Next UPDATE 
-                Persistence re-model
+                Persistence re-design
                 - switch from File-based to relational database MySQL
                 
                 App re-model
