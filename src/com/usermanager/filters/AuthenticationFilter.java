@@ -19,16 +19,14 @@ import org.apache.log4j.Logger;
 @WebFilter("/AuthenticationFilter")
 public class AuthenticationFilter implements Filter{
 	private static final Logger logger = Logger.getLogger(AuthenticationFilter.class); 
-	private static ServletContext context2;
+ 
 	
 	@Override
 	public void init(FilterConfig fConfig) { 
 		logger.info("AuthenticationFilter initialized");
-		context2=fConfig.getServletContext();
+		 
 	}
-	public static ServletContext getServletContext() {
-		return context2;
-	}
+	 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
