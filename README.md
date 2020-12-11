@@ -1,7 +1,15 @@
 # UserManagerAPI-WebApplication 
 ## (currently being updated...)
-
-
+# UPDATE 
+                Persistence re-design
+                - switch from File-based to relational database MySQL
+                
+                App re-model
+                - 1. Improve Object model
+                - 2. Update persistence layer to JPA and implement Hibernate, 
+                - 3. Improve web-service and data layer structure,
+                - 4. Improve Security,add email based AUTH
+                - 5. Improve front-end 
 
 ## **Description**
 
@@ -26,17 +34,4 @@ user experience on the website and showing a custom html message with a redirect
 ## **Logging**
 
 Application startup,performance,activity is being logged through Web Filters and Listener and documented in ApacheTomcat log file using log4j logger. 
-Log4j properties are defined in log4j.properties file.
-
-
-# Next UPDATE 
-                Persistence re-design
-                - switch from File-based to relational database MySQL
-                
-                App re-model
-                - 1. Improve Object model
-                - 2. Update persistence layer to JPA and implement Hibernate, 
-                - 3. Improve web-service and data layer structure,
-                - 4. Improve Security,add email based AUTH
-                - 5. Improve front-end 
-                
+Log4j properties are defined in log4j.properties file
