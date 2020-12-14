@@ -12,8 +12,8 @@
                 - 5. Improve front-end 
 
 ## **Description**
+Java EE Web-Application - UserManagerAPI providing JAX-RS RESTful API implementation for managing users data and upload of business files to the server, using .jsp pages as front-end
 
-Java Web application-UserManagerAPI can be used to manage users and upload business files to the server, 
 - AdminUser must login to go to the welcome page, 
 - AdminUser can upload files and business logs to the server,
 - File is uploaded with a form, and user gets notified if the file is uploaded succesfully, or if the file with the same name already exists on the server.
