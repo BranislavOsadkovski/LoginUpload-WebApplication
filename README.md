@@ -19,11 +19,11 @@ Java EE Web-Application - UserManagerAPI providing JAX-RS RESTful API implementa
 - File is uploaded with a form, and user gets notified if the file is uploaded succesfully, or if the file with the same name already exists on the server.
 - File upload is managed by the FileUploadServlet that also contains the configuration for performance and size of the files
 
-**AdminUser can use the UserService API to**
-- Admin can READ all the users in the database
-- Admin can CREATE User
-- Admin can EDIT User
-- Admin can DELETE User
+**AdminUser can use the UserService API to :**
+- READ all the users in the database
+- CREATE User
+- EDIT User
+- DELETE User
 
 ## **Security** 
 
