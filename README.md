@@ -8,8 +8,9 @@
                 - 1. Improve Object model
                 - 2. Update persistence layer to JPA and implement Hibernate, 
                 - 3. Improve web-service and data layer structure,
-                - 4. Improve Security,add email based AUTH
-                - 5. Improve front-end 
+                - 4. Improve Security
+                - 5. add email based AUTH
+                - 6. Improve front-end UI
 
 ## **Description**
 Java EE Web-Application - UserManagerAPI providing Jersey (JAX-RS) RESTful API implementation for managing users data and upload of business files to the server, using .jsp pages as front-end
