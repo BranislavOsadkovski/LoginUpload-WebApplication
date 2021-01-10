@@ -11,6 +11,7 @@
                 - 4. Improve Security
                 - 5. add email based AUTH
                 - 6. Improve front-end UI
+                - 7. Improve logical structure design
 
 ## **Description**
 Java EE web application - providing Jersey (JAX-RS) RESTful API implementation for managing users data and upload of business files to the server, using .jsp pages as front-end
