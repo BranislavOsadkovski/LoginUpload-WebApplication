@@ -2,7 +2,7 @@
 ## (currently being updated...)
 # UPDATE! 
                 Persistence re-design
-                - switch from File-based to relational database MySQL
+                - switch from file-based to relational database MySQL
                 
                 App re-model
                 - 1. Improve Object model
