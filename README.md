@@ -1,5 +1,5 @@
 # UserManagerAPI-WebApplication 
-## (currently being updated...)
+## (currently being updated....)
 # UPDATE! 
                 Persistence re-design
                 - switch from file-based to relational database MySQL
