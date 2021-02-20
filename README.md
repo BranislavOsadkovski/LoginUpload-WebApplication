@@ -6,7 +6,7 @@
                 
                 App re-model
                 - 1. Improve Object model
-                - 2. Update persistence layer to JPA and implement Hibernate, 
+                - 2. Update persistence layer to JPA and implement Hibernate provider, 
                 - 3. Improve web-service and data layer structure,
                 - 4. Improve Security
                 - 5. add email based AUTH
